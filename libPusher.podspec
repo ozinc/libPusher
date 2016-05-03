@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary         = 'An Objective-C client for the Pusher.com service'
   s.homepage        = 'https://github.com/lukeredpath/libPusher'
   s.author          = 'Luke Redpath'
-  s.source          = { :git => 'https://github.com/lukeredpath/libPusher.git', :tag => 'v1.6.1' }
+  s.source          = { :git => 'https://github.com/ozinc/libPusher.git' }
   s.requires_arc    = true
   s.header_dir      = 'Pusher'
   s.default_subspec = 'Core'
@@ -15,15 +15,15 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
 
   s.subspec 'Core' do |subspec|
-    subspec.dependency 'SocketRocket', "0.4.1"
+    subspec.dependency 'SocketRocket', "0.5.0"
 
     subspec.source_files         = 'Library/**/*.{h,m}'
     subspec.private_header_files = 'Library/Private Headers/*'
-    subspec.xcconfig             = { 
-      'GCC_PREPROCESSOR_DEFINITIONS' => 'kPTPusherClientLibraryVersion=@\"1.6\"' 
+    subspec.xcconfig             = {
+      'GCC_PREPROCESSOR_DEFINITIONS' => 'kPTPusherClientLibraryVersion=@\"1.6\"'
     }
   end
-  
+
   s.subspec 'ReactiveExtensions' do |subspec|
     subspec.dependency 'libPusher/Core'
     subspec.dependency 'ReactiveCocoa', '~> 2.1'
